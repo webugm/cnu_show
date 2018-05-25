@@ -3,7 +3,7 @@ $modversion = array();
 
 //---模組基本資訊---//
 $modversion['name']        = _MI_CNUSHOW_NAME;
-$modversion['version']     = '1.00';
+$modversion['version']     = '1.01';
 $modversion['description'] = _MI_CNUSHOW_DESC;
 $modversion['author']      = _MI_CNUSHOW_AUTHOR;
 $modversion['credits']     = _MI_CNUSHOW_CREDITS;
@@ -14,7 +14,7 @@ $modversion['image']       = 'images/logo.png';
 $modversion['dirname']     = basename(dirname(__FILE__));
 
 //---模組狀態資訊---//
-$modversion['release_date']        = '2018/05/11';
+$modversion['release_date']        = '2018/05/25';
 $modversion['module_website_url']  = 'https://www.ugm.com.tw';
 $modversion['module_website_name'] = '育將電腦工作室';
 $modversion['module_status']       = 'release';

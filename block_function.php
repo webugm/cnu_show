@@ -36,13 +36,27 @@ function getAllMain0KindCount($tbl_main,$tbl_kind,$admin=0){
           group by a.`kind`
           order by b.ofsn,b.sort";//die($sql);
   $result = $xoopsDB->query($sql) or redirect_header(XOOPS_URL,3, web_error());
+  $rows = array();
   while($row=$xoopsDB->fetchArray($result) ){
     //以下會產生這些變數： sn title  enable
     $row['sn']=intval($row['sn']);
     $row['ofsn']=intval($row['ofsn']);
     $row['count']=intval($row['count']);    
     $row['title'] = $myts->htmlSpecialChars($row['title']);
-    $rows[] = $row;
+    if($row['ofsn'] and !$rows[$row['ofsn']]){
+      #無大類
+      $sql_b = "select sn,ofsn,title 
+              from ".$xoopsDB->prefix($tbl_kind)." 
+              where  `sn` = '{$row['ofsn']}'";//die($sql);
+      $result_b = $xoopsDB->query($sql_b) or redirect_header(XOOPS_URL,3, web_error());
+      $row_b = $xoopsDB->fetchArray($result_b);
+      $row_b['sn']=intval($row_b['sn']);
+      $row_b['ofsn']=intval($row_b['ofsn']);
+      $row_b['count']="";    
+      $row_b['title'] = $myts->htmlSpecialChars($row_b['title']);
+      $rows[$row['ofsn']] = $row_b;
+    }
+    $rows[$row['sn']] = $row;
   }
   return $rows;
 } 

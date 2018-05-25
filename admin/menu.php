@@ -9,7 +9,7 @@ $adminmenu[$i]['icon']  = 'images/admin/home.png';
 
 $i++;
 $adminmenu[$i]['title'] = _MI_CNUSHOW_ADMENU1;
-$adminmenu[$i]['link']  = "admin/ad.php";
+$adminmenu[$i]['link']  = "admin/main.php";
 $adminmenu[$i]['desc']  = _MI_CNUSHOW_ADMENU1_DESC;
 $adminmenu[$i]['icon']  = 'images/admin/button.png';
 
