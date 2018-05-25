@@ -8,7 +8,7 @@
           //设置树的节点及其相关属性 
           prod.add(0,-1,' <{$block.options.1}>'); 
           <{foreach from=$block.rows item=row}>
-            prod.add(<{$row.sn}>,<{$row.ofsn}>,"<{$row.title}><{if $row.count}>(<{$row.count}>)<{/if}>","<{xoAppUrl}>modules/cnu_show/index.php?op=showKind&kind=<{$row.sn}>");
+            prod.add(<{$row.sn}>,<{$row.ofsn}>,"<{$row.title}><{if $row.count}>(<{$row.count}>)<{/if}>",<{if $row.count}> "<{xoAppUrl}>modules/cnu_show/index.php?op=showKind&kind=<{$row.sn}>"<{else}>""<{/if}>);
           <{/foreach}> 
           //config配置，设置文件夹不能被链接，即有子节点的不能被链接。 
           //prod.config.folderLinks=false; 
